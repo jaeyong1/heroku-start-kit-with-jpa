@@ -11,6 +11,7 @@ public class Team {
     @GeneratedValue
     private Long id;
     private String name;
+    private Long errtest;
 
 
     public Long getId() {
@@ -27,5 +28,13 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getErrtest() {
+        return errtest;
+    }
+
+    public void setErrtest(Long errtest) {
+        this.errtest = errtest;
     }
 }
