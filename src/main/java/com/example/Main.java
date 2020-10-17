@@ -46,23 +46,36 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
+  @Value("${spring.datasource.username}")
+  private String dbusername;
+
+  @Value("${spring.datasource.password}")
+  private String dbpassword;
+
   @Autowired
   private DataSource dataSource;
 
   public static void main(String[] args) throws Exception {
+
     SpringApplication.run(Main.class, args);
+
   }
 
   @RequestMapping("/")
   String index() {
+//    System.out.println("dbUrl" + dbUrl);
     return "index";
   }
 
   @RequestMapping("/hello")
   String hello(Map<String, Object> model) {
     RelativisticModel.select();
-    Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-    model.put("science", "E=mc^2: 12 GeV = " + m.toString());
+    String energy = System.getenv().get("ENERGY");
+    if (energy == null) {
+      energy = "12 GeV";
+    }
+    Amount<Mass> m = Amount.valueOf(energy).to(KILOGRAM);
+    model.put("science", "E=mc^2: " + energy + " = "  + m.toString());
     return "hello";
   }
 
@@ -90,10 +103,21 @@ public class Main {
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
+      //DB정보 없으면 그냥 기본
       return new HikariDataSource();
-    } else {
+    } else if (dbUrl.contains("@")) {
+      //@있으면 ID:PW@URL형태이므로 URL만 적용
+      System.out.println("dbUrl:" + dbUrl);
       HikariConfig config = new HikariConfig();
       config.setJdbcUrl(dbUrl);
+      return new HikariDataSource(config);
+    } else {
+      //아니면 url, id, pw 각각 입력
+      //needs username & password
+      HikariConfig config = new HikariConfig();
+      config.setJdbcUrl(dbUrl);
+      config.setUsername(dbusername);
+      config.setPassword(dbpassword);
       return new HikariDataSource(config);
     }
   }
