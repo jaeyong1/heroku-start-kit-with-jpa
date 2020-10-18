@@ -39,7 +39,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
-@Controller
 @SpringBootApplication
 public class Main {
 //
@@ -56,6 +55,14 @@ public class Main {
 //  private DataSource dataSource;
 
   public static void main(String[] args) throws Exception {
+
+//    DB에 테스트 데이터 150개 넣기
+//    updated, created 자동남기기
+//    GET에 자동으로 페이지요청 파라미터 파싱하기
+//    페이지 나눠서 읽어오고 리턴
+//    JSON으로 리턴하기
+//    CRUD 샘플구현
+//    외부 로그인 연동(구글이나 카카오), 로그인인증확인
 
     SpringApplication.run(Main.class, args);
 
