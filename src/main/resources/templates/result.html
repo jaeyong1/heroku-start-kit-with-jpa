@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>투표진행현황 - 온라인투표소</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">온라인투표소</a></div>
+    </nav>
+    <main class="page testimonials">
+        <section class="clean-block clean-testimonials dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">투표진행현황<br></h2>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card clean-testimonial-item border-0 rounded-0">
+                            <div class="card-body">
+                                <p class="text-center card-text"><strong>현재까지 투표인원 수</strong><br></p>
+                                <h3 class="text-center" th:text="${nVoted}">___명</h3>
+                                <h4 class="text-center card-title" th:text="${nKeys}"></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card clean-testimonial-item border-0 rounded-0">
+                            <div class="card-body">
+                                <p class="text-center card-text">찬성 득표수</p>
+                                <h3 class="text-center" th:text="${nAgreed}">___ 표</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card clean-testimonial-item border-0 rounded-0">
+                            <div class="card-body">
+                                <p class="text-center card-text">반대 득표수</p>
+                                <h3 class="text-center" th:text="${nNotAgreed}">___ 표</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Start: Footer Dark -->
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2020 Copyright, yongslab.com - Jae Yong Park</p>
+        </div>
+    </footer>
+    <!-- End: Footer Dark -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>

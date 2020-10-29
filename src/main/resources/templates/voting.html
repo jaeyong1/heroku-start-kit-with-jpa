@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pricing - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<script th:inline = "javascript">
+    window.onload = function () {
+        console.log("hi~");
+    }
+
+    function sendvote(opt) {
+        console.log(opt);
+        var form = document.userinput;
+        document.getElementById("agreement").value = opt;
+        form.submit();
+    }
+
+
+
+</script>
+
+<body>
+
+
+<form th:action="@{/vote/saveagreement}" method="post" name="userinput">
+    <div class="form-group">
+        <!-- Start: #key1 --><input class="form-control item" type="text" id="agreement" name="agreement" value="null">
+        <!-- End: #key1 -->
+    </div>
+
+</form>
+
+
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">온라인투표소</a></div>
+    </nav>
+
+    <main class="page pricing-table-page">
+        <section class="clean-block clean-pricing dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">투표하기</h2>
+                    <p>2021.01.01 ~ 2021.12.31까지 *** 의 대표로 김@@님을 의결하는 내용입니다. <br>한번 제출후에는 다시 선택은 불가하므로 신중히 선택하시기 바랍니다.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3>찬성</h3>
+                            </div>
+                            <p>김@@님을 **의 대표로 선출하는 안건에 찬성합니다.</p>
+                            <div class="features"></div>
+                            <div class="price"></div><button class="btn btn-outline-primary btn-block" type="button" onclick="sendvote('true')">찬성으로 제출</button></div>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3>반대</h3>
+                            </div>
+                            <p>김@@님을 **의 대표로 선출하는 안건에 반대합니다.<br></p>
+                            <div class="features"></div>
+                            <div class="price"></div><button class="btn btn-outline-primary btn-block" type="button" onclick="sendvote('false')">반대로 제출</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Start: Footer Dark -->
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2020 Copyright, yongslab.com - Jae Yong Park</p>
+        </div>
+    </footer>
+    <!-- End: Footer Dark -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>

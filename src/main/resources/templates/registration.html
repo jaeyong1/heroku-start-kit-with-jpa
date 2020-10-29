@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">온라인투표소</a></div>
+    </nav>
+
+    <h3 type="hidden" id="yourId" class="text-center" th:text="${errmsg}">___명</h3>
+
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h3 class="text-center" th:text="${errmsg}"></h3>
+                    <h2 class="text-info">신분확인</h2>
+                    <p>문자메세지로 전달받은 Key1, Key2와 본인의 전화번호 끝 4자리를 입력하십시오.&nbsp;<br>투표기간: 2020. 12. 01 오전 8시 ~ 오후 5시<br></p>
+                </div>
+                <form th:action="@{/vote/checkauth}" method="post">
+                    <div class="form-group"><label for="key1">Key1</label>
+                        <!-- Start: #key1 --><input class="form-control item" type="number" id="key1" name="key1" >
+                        <!-- End: #key1 -->
+                    </div>
+                    <div class="form-group"><label for="key2">Key2</label>
+                        <!-- Start: #key2 --><input class="form-control item" type="text" id="key2" name="key2">
+                        <!-- End: #key2 -->
+                    </div>
+                    <div class="form-group"><label for="telnum">전화번호 끝4자리(숫자만)</label>
+                        <!-- Start: #telnum4 --><input class="form-control item" type="number" id="telnum" name="telnum">
+                        <!-- End: #telnum4 -->
+                    </div><button class="btn btn-primary btn-block" type="submit">입장하기</button></form>
+            </div>
+        </section>
+    </main>
+    <!-- Start: Footer Dark -->
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2020 Copyright, yongslab.com - Jae Yong Park</p>
+        </div>
+    </footer>
+    <!-- End: Footer Dark -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>

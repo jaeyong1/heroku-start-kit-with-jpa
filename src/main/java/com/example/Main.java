@@ -70,9 +70,9 @@ public class Main {
 
   @RequestMapping("/")
   String index() {
-//    System.out.println("dbUrl" + dbUrl);
     return "index";
   }
+
 
 //  @RequestMapping("/hello")
 //  String hello(Map<String, Object> model) {
